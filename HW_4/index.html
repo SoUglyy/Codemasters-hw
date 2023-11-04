@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <script defer src="js/script.js"></script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <form action="/" id="form" method="get" class="form form__container">
+      <div class="form__box">
+        <label class="form__label" for="email">Email*</label>
+        <input id="email" type="text" class="form__input" name="email">
+        <div class="error"></div>
+      </div>
+      <div class="form__box">
+        <label class="form__label" for="username">ФИО*</label>
+        <input id="username" type="text" class="form__input" name="name">
+        <div class="error"></div>
+      </div>
+      <div class="form__box">
+        <label class="form__label" for="password">Пароль*</label>
+        <input type="password" id="password" name="password" class="form__input">
+        <div class="error"></div>
+      </div>
+      <div class="form__box">
+        <label class="form__label" for="passwordConfirm">Подтвердите пароль*</label>
+        <input type="password" id="passwordConfirm" name="passwordConfirm" class="form__input">
+        <div class="error"></div>
+      </div>
+      <div class="form__box">
+        <label class="form__checkbox-label" for="check">Я подтверждаю, что хочу зарегистрироваться
+        <input type="checkbox" id="check" class="form__checkbox" name="check">
+        <span class="form__checkbox-option"></span>
+        <div class="error"></div>
+      </label>
+      </div>
+      
+      <input type="submit" class="button form__button">
+    </form>
+  </div>
+</body>
+
+
+
+</html>

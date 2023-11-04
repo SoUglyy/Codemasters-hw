@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+:root {
+    --main-color: #bf8378;
+    --black: #555;
+    --bg: #fceae9;
+    --light-color: #777;
+    --border: .1rem solid rgba(0, 0, 0, .1);
+    --box-shadow: 0 .5rem 1.5rem rgba(0, 0, .1);
+}
+
+.unselectable {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #cc0000;
+}
+
+* {
+    font-family: 'Open sans', sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: all .3s ease-out;
+    color: rgb(38, 35, 35);
+    font-size: 1rem;
+}
+
+body {
+    background: linear-gradient(to right, #141e30, #243b55);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-size: 1rem;
+}
+
+
+h1 {
+    color: #fff;
+}
+
+.form__container {
+    position: relative;
+    width: 300px;
+    margin: 20vh auto 0 auto;
+    padding: 1.2rem;
+    background-color: #F2F2F7;
+    border: #9747FF 2px solid;
+    border-radius: 8px;
+}
+
+.form__box {
+    margin-bottom: 1.5rem;
+
+}
+
+.row {
+    flex-flow: row;
+    display: flex;
+}
+
+.form__label {
+    font-size: .625rem;
+    margin-bottom: 7px;
+}
+
+.form__input {
+    border-radius: 7px;
+    width: 256px;
+    height: 34px;
+    border: 0.5px solid #C0C6C9;
+    font-size: .75rem;
+    padding: 2px 12px 2px 12px;
+}
+
+.form__input:focus {
+    background-color: #E4F0FF;
+    outline: 0.5px solid #007AFF;
+    caret-color: #007AFF;
+}
+
+.form__button {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #C0C6C9;
+    padding: 0.3rem;
+}
+
+.form__checkbox-label {
+    font-size: .75rem;
+    
+}
+
+.form__checkbox {
+    margin-left: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-left: 12.5em;
+}
+
+.form__checkbox + .form__checkbox-option::before {
+    position: absolute;
+    content: "";
+    width: 60px;
+    height: 30px;
+    top:23.9rem;
+    right: 1.4rem;
+    border-radius: 20px;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.form__checkbox + .form__checkbox-option::after {
+    position: absolute;
+    content: "";
+    width: 26px;
+    height: 26px;
+    top:24rem;
+    right: 1.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    transform: translateX(-30px);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.form__checkbox:checked + .form__checkbox-option::after {
+    transform: translateX(0px);
+}
+.form__checkbox:checked + .form__checkbox-option::before {
+    background-color: #4cca5e;
+}
+
+.form__box.success input {
+    border-color: #09c372;
+}
+
+.form__box.error input {
+    border-color: #ff3860;
+}
+
+.form__box .error {
+    color: #ff3860;
+    font-size: 13px;
+    height: 13px;
+}
