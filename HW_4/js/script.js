@@ -16,20 +16,20 @@ function btnSubmit (e) {
   e.preventDefault();
   validateInputs();
   checkValidform();
- 
+
 }
 //main validation ends
 
 function checkValidform () {
   const formBox = document.querySelectorAll(".form__box")
   const labelCheckbox = document.querySelector(".form__checkbox-label")
-  var valid = 0;
+  var valid = 0; // var - уже устарел
   formBox.forEach((el) => {
     if (el.classList.contains("success")) {
         valid = valid + 1;
-    } 
-}); 
-  if (valid == 4  && labelCheckbox.classList.contains("success")) {
+    }
+});
+  if (valid == 4  && labelCheckbox.classList.contains("success")) { /* в js для сравнения используются 3 знака =, а не два*/
     localStorage.setItem('E-mail', email.value);
     localStorage.setItem('Username', username.value);
     localStorage.setItem('Password', password.value);

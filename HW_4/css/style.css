@@ -43,7 +43,7 @@ h1 {
 .form__container {
     position: relative;
     width: 300px;
-    margin: 20vh auto 0 auto;
+    margin: 20vh auto 0 auto; /* Я так понимаю, 20vh из-за того, что у тебя не получалось выровнять по вертикали. Для этого нужно было использовать 100vh в wrapper. Я показывал как это работает*/
     padding: 1.2rem;
     background-color: #F2F2F7;
     border: #9747FF 2px solid;
