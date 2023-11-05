@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/normalize.css">
   <script defer src="js/script.js"></script>
+  <!--dasd.js стоит бы удалить ))-->
 
   <title>Document</title>
 </head>
@@ -14,11 +15,19 @@
 <body>
   <div class="wrapper">
     <form action="/" id="form" method="get" class="form form__container">
-      <div class="form__box">
-        <label class="form__label" for="email">Email*</label>
+      <div class="form__box"> <!-- Как вариант, элементы формы можно назвать form__control.-->
+        <label class="form__label" for="email">Email*</label> <!-- Название хорошее. Я бы сделал label элементом контрола, а не формы. То есть, label и input Они относятся непосредственно к контролу, а у тебя же они "приклеены" к форме. -->
         <input id="email" type="text" class="form__input" name="email">
-        <div class="error"></div>
+        <div class="error"></div> <!-- Ошибки может и не быть, а блок у тебя всегда есть. Можешь увидеть (при помощи дев тулзов), что он занимает место в верстке. Лучше создавай элемент при помощи JS только когда у тебя есть ошибка -->
       </div>
+
+      <!-- Вот что я предлагаю-->
+<!--      <div class="form__control form-control"> -->
+<!--        <label class="form-control__label" for="email">Email*</label>-->
+<!--        <input id="email" type="text" class="form-control__input" name="email">-->
+<!--        <div class="form-control__error error"></div>-->
+<!--      </div>-->
+
       <div class="form__box">
         <label class="form__label" for="username">ФИО*</label>
         <input id="username" type="text" class="form__input" name="name">
@@ -34,14 +43,14 @@
         <input type="password" id="passwordConfirm" name="passwordConfirm" class="form__input">
         <div class="error"></div>
       </div>
-      <div class="form__box">
+      <div class="form__box"> <!-- Я в файле описал, как должен выглядеть Чекбокс. Очень круто, что ты сделал то что в макете, давай теперь попробуем сделать то как я расписал, там вроде проблем быть не должно-->
         <label class="form__checkbox-label" for="check">Я подтверждаю, что хочу зарегистрироваться
         <input type="checkbox" id="check" class="form__checkbox" name="check">
         <span class="form__checkbox-option"></span>
-        <div class="error"></div>
+        <div class="error"></div> <!-- Внутри label нельзя вставлять DIV. IDE мне пишет "Element div is not allowed here "-->
       </label>
       </div>
-      
+
       <input type="submit" class="button form__button">
     </form>
   </div>
