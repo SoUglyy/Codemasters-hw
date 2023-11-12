@@ -39,18 +39,20 @@ body {
 h1 {
     color: #fff;
 }
-
+.wrapper{
+    margin: 20vh auto ;
+}
 .form__container {
     position: relative;
+    margin: 0 auto ;
     width: 300px;
-    margin: 20vh auto 0 auto; /* Я так понимаю, 20vh из-за того, что у тебя не получалось выровнять по вертикали. Для этого нужно было использовать 100vh в wrapper. Я показывал как это работает*/
     padding: 1.2rem;
     background-color: #F2F2F7;
     border: #9747FF 2px solid;
     border-radius: 8px;
 }
 
-.form__box {
+.form__control {
     margin-bottom: 1.5rem;
 
 }
@@ -60,12 +62,12 @@ h1 {
     display: flex;
 }
 
-.form__label {
+.form-control__label {
     font-size: .625rem;
     margin-bottom: 7px;
 }
 
-.form__input {
+.form-control__input {
     border-radius: 7px;
     width: 256px;
     height: 34px;
@@ -74,7 +76,7 @@ h1 {
     padding: 2px 12px 2px 12px;
 }
 
-.form__input:focus {
+.form-control__inputt:focus {
     background-color: #E4F0FF;
     outline: 0.5px solid #007AFF;
     caret-color: #007AFF;
@@ -99,14 +101,19 @@ h1 {
     appearance: none;
     margin-left: 12.5em;
 }
+.form__checkbox-option{
 
+display: block;
+height: 0px;
+}
 .form__checkbox + .form__checkbox-option::before {
-    position: absolute;
+    display: block;
+    position: relative;
     content: "";
     width: 60px;
     height: 30px;
-    top:23.9rem;
-    right: 1.4rem;
+    left: 12rem;
+    bottom:3rem;
     border-radius: 20px;
     background-color: #ccc;
     cursor: pointer;
@@ -114,12 +121,13 @@ h1 {
 }
 
 .form__checkbox + .form__checkbox-option::after {
-    position: absolute;
+    display: block;
+    position: relative;
     content: "";
     width: 26px;
     height: 26px;
-    top:24rem;
-    right: 1.5rem;
+    left: 14rem;
+    bottom:4.75rem;
     border-radius: 50%;
     background-color: #fff;
     transform: translateX(-30px);
@@ -133,15 +141,15 @@ h1 {
     background-color: #4cca5e;
 }
 
-.form__box.success input {
+.form__control.success input {
     border-color: #09c372;
 }
 
-.form__box.error input {
+.form__control.error input {
     border-color: #ff3860;
 }
 
-.form__box .error {
+.form__control .error {
     color: #ff3860;
     font-size: 13px;
     height: 13px;

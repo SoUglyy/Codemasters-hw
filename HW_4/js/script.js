@@ -6,7 +6,7 @@ const password2 = document.getElementById('passwordConfirm');
 const check = document.querySelector('#check');
 const button = document.querySelector(".button");
 const error = document.querySelector('.error');
-const formBox = document.querySelector(".form__box");
+const formBox = document.querySelector(".form__control");
 
 
 button.addEventListener("click", btnSubmit);
@@ -16,20 +16,20 @@ function btnSubmit (e) {
   e.preventDefault();
   validateInputs();
   checkValidform();
-
+  
 }
 //main validation ends
 
 function checkValidform () {
-  const formBox = document.querySelectorAll(".form__box")
+  const formBox = document.querySelectorAll(".form__control")
   const labelCheckbox = document.querySelector(".form__checkbox-label")
-  var valid = 0; // var - уже устарел
+  let valid = 0; 
   formBox.forEach((el) => {
     if (el.classList.contains("success")) {
         valid = valid + 1;
     }
 });
-  if (valid == 4  && labelCheckbox.classList.contains("success")) { /* в js для сравнения используются 3 знака =, а не два*/
+  if (valid === 4  && labelCheckbox.classList.contains("success")) { 
     localStorage.setItem('E-mail', email.value);
     localStorage.setItem('Username', username.value);
     localStorage.setItem('Password', password.value);
@@ -53,6 +53,9 @@ const setSuccess = element => {
   inputControl.classList.add('success');
   inputControl.classList.remove('error');
 };
+
+
+
 const isValidEmail = email => {
   const regexEmail  = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return regexEmail.test(String(email).toLowerCase());
