@@ -1,0 +1,19 @@
+{
+  "name": "hw51",
+  "version": "1.0.0",
+  "description": "***QUIZ APP",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server -c configs/lite-server-config.json",
+    "json:server": "node configs/server.js",
+    "start": "concurrently \"lite-server -c configs/lite-server-config.json\"  \"node configs/server.js\""  
+
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "json-server": "^0.17.4",
+    "lite-server": "^2.6.1"
+  }
+}
