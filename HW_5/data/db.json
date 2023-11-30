@@ -1,56 +1,63 @@
 {
   "questions": [
     {
-      "id": 1,
-      "question": "2 + 2 = ?",
+      "question": "Что такое HTML?",
       "answers": [
-        {
-          "id": 1,
-          "text": "4",
-          "correct": true
-        },
-        {
-          "id": 2,
-          "text": "1",
-          "correct": false
-        },
-        {
-          "id": 3,
-          "text": "3",
-          "correct": false
-        },
-        {
-          "id": 4,
-          "text": "2",
-          "correct": false
-        }
-      ]
+        "HyperText Markup Language",
+        "Cascading Style Sheets",
+        "Hypertext Preprocessor",
+        "Ответ 4"
+      ],
+      "correct": 0
     },
     {
-      "id": 2,
-      "question": "2 + 1 = ?",
+      "question": "2 + 3 = ?",
       "answers": [
-        {
-          "id": 1,
-          "text": "5",
-          "correct": false
-        },
-        {
-          "id": 2,
-          "text": "1111111",
-          "correct": false
-        },
-        {
-          "id": 3,
-          "text": "3",
-          "correct": true
-        },
-        {
-          "id": 4,
-          "text": "2131232",
-          "correct": false
-        }
-      ]
+        "Ответ 1",
+        "Ответ 2",
+        "Ответ 3",
+        "Ответ 4",
+        "Ответ 4"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "2 + 5 = ?",
+      "answers": [
+        "Ответ 1",
+        "Ответ 2",
+        "Ответ 3",
+        "Ответ 4"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "2 + 7 = ?",
+      "answers": [
+        "Ответ 1",
+        "Ответ 2"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "2 + 8 = ?",
+      "answers": [
+        "Ответ 1",
+        "Ответ 2",
+        "Ответ 3",
+        "Ответ 4"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "2 + 9 = ?",
+      "answers": [
+        "Ответ 1",
+        "Ответ 2",
+        "Ответ 3",
+        "Ответ 4"
+      ],
+      "correct": 2
     }
   ]
 }

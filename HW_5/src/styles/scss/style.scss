@@ -64,7 +64,7 @@ body {
     &__inner {
       height: 100%;
       border-radius: 30px;
-      width: 70%;
+      width: 0;
       background: rgb(18, 231, 48);
       transition: all 0.3s ease-in-out;
       background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1));
@@ -106,17 +106,25 @@ body {
         background: #cce5ff;
         border: 1px solid #b8daff;
       }
-      &--true{
+
+      &--true {
         border: #1e527f;
         background: rgb(23, 172, 55);
+
       }
-      &--false{
+
+      &--false {
         border: #1e527f;
         background: rgb(199, 16, 16);
+
       }
+
+      
     }
-   
+
   }
+
+  
 
   &-footer {
     display: flex;
@@ -141,6 +149,11 @@ body {
     border: 1px solid rgba(238, 174, 202, 1);
     background: #54ba50;
     cursor: pointer;
+
+    &--disable {
+      opacity: 0.5;
+      pointer-events: none;
+    }
   }
 }
 
@@ -170,4 +183,9 @@ body {
       background: rgba(238, 174, 202, 1);
     }
   }
+}
+
+.disabled {
+  
+  pointer-events: none;
 }
