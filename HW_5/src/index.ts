@@ -37,11 +37,6 @@ let countdown: any
 let timerCount: number = 2
 
 // timer
-
-// end
-
-
-
 const timerDispaly = () => {
   countdown = setInterval(() => {
     timerCount--
@@ -53,7 +48,7 @@ const timerDispaly = () => {
 
   }, 1000)
 }
-// render Quiz
+
 function timerDisplayModal(): void {
   const theEnd = document.createElement('div') as HTMLDivElement
   theEnd.classList.add('quiz-timer')
@@ -70,6 +65,8 @@ function timerDisplayModal(): void {
   modal.showModal()
 
 }
+// end
+// render Quiz
 function renderQuiz(total: number, count: number): void {
   renderProgress(total, count)
   if (count + 1 === total) {

@@ -27,7 +27,6 @@ var resultCount = 0;
 var countdown;
 var timerCount = 60;
 // timer
-// end
 var timerDispaly = function () {
     countdown = setInterval(function () {
         timerCount--;
@@ -38,7 +37,7 @@ var timerDispaly = function () {
         }
     }, 1000);
 };
-// render Quiz
+// end
 function timerDisplayModal() {
     var theEnd = document.createElement('div');
     theEnd.classList.add('quiz-timer');
@@ -47,6 +46,7 @@ function timerDisplayModal() {
     var modal = document.querySelector('dialog');
     modal.showModal();
 }
+// render Quiz
 function renderQuiz(total, count) {
     renderProgress(total, count);
     if (count + 1 === total) {

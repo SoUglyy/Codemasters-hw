@@ -5,13 +5,14 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass -w src/styles/scss/:src/styles/css",
     "start": "concurrently \"lite-server -c configs/lite-server-config.json\" \"node configs/server.js\"",
     "dev": "lite-server -c configs/lite-server-config.json",
     "json:server": "node configs/server.js",
     "tsc": "tsc",
     "build": "webpack",
     "lint": "eslint .",
-    "lint:fix":"npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix"
   },
   "author": "",
   "license": "ISC",
@@ -33,5 +34,9 @@
     "typescript": "^5.3.2",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "node-sass": "^9.0.0",
+    "npm-sass": "^3.1.0"
   }
 }
