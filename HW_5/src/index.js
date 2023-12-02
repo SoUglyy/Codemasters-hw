@@ -1,199 +1,144 @@
-
-//main 
-
-import * as restService from './rest.js'
-
-const quizBlock = document.getElementById('quiz')
-const resultBlock = document.getElementById('result')
-
-//main
-
-//progress
-
-const progressInner = document.getElementById('progress-inner')
-const questionNumber = document.getElementById('question-number')
-const questionTotal = document.getElementById('question-total')
-const nextButton = document.getElementById('next-button')
-
-//progress
-
-//content
-
-const data = await restService.get(`questions/`)
-const question = document.getElementById('question')
-const options = document.querySelectorAll('quiz-list__option')
-const answers = document.getElementById('answers')
-
-//result
-
-const correctAnswers = document.getElementById('correct-answers')
-const totalAnswers = document.getElementById('total-answers')
-
-//result
-
-let questionsCount = data.length;
-let count = 0;
-let resultCount = 0;
-
-nextButton.onclick = () => {
-  count = count < questionsCount ? count + 1 : count;
-  renderQuiz(questionsCount, count);
-
+"use strict";
+// main
+import * as restService from './services/rest.js'
+var wrapper = document.querySelector('.wrapper');
+var quizBlock = document.getElementById('quiz');
+var resultBlock = document.getElementById('result');
+// main
+// progress
+var progressInner = document.getElementById('progress-inner');
+var questionNumber = document.getElementById('question-number');
+var questionTotal = document.getElementById('question-total');
+var restartButton = document.getElementById('restart-button');
+var nextButton = document.getElementById('next-button');
+// progress
+// content
+var data = await restService.get('questions/');
+var question = document.getElementById('question');
+var answers = document.getElementById('answers');
+var timerLeft = document.querySelector('.quiz-timer__left');
+// result
+var correctAnswers = document.getElementById('correct-answers');
+var totalAnswers = document.getElementById('total-answers');
+// result
+var questionsCount = data.length;
+var count = 0;
+var resultCount = 0;
+var countdown;
+var timerCount = 60;
+// timer
+// end
+var timerDispaly = function () {
+    countdown = setInterval(function () {
+        timerCount--;
+        timerLeft.innerHTML = "".concat(timerCount, "s");
+        if (timerCount === 0) {
+            clearInterval(countdown);
+            timerDisplayModal();
+        }
+    }, 1000);
+};
+// render Quiz
+function timerDisplayModal() {
+    var theEnd = document.createElement('div');
+    theEnd.classList.add('quiz-timer');
+    wrapper.append(theEnd);
+    theEnd.innerHTML = "\n  <dialog>\n  <div class=\"quiz-timer__end\">\n    <span class=\"quiz-timer__text\">\u0412\u0440\u0435\u043C\u044F \u0432\u044B\u0448\u043B\u043E!</span>\n    <button class=\"btn quiz-timer__button\" onclick=\"location.reload(); return false;\">\u041D\u0430\u0447\u0430\u0442\u044C \u0437\u0430\u043D\u043E\u0432\u043E</button>\n  </div>\n</dialog>\n  ";
+    var modal = document.querySelector('dialog');
+    modal.showModal();
 }
-
-//render Quiz
-
 function renderQuiz(total, count) {
-
-  renderProgress(total, count);
-  if (count + 1 === total) {
-    changeButtonResult();
-  }
-  if (count < total) {
-    const answers = data[count].answers;
-    const answersData = createAnswers(answers);
-    renderQuestion(count);
-    renderAnswers(answersData);
-    disableButton(true);
-  } else if (count === total) {
-    renderResults();
-  }
+    renderProgress(total, count);
+    if (count + 1 === total) {
+        changeButtonResult();
+    }
+    if (count < total) {
+        var answers_1 = data[count].answers;
+        var answersData = createAnswers(answers_1);
+        renderQuestion(count);
+        renderAnswers(answersData);
+        disableButton(true);
+    }
+    else if (count === total) {
+        renderResults();
+    }
+    clearInterval(countdown);
+    timerDispaly();
 }
 renderQuiz(questionsCount, count);
-//end 
-
-//render total progress of questions, question number, progress bar
+// end
+// render total progress of questions, question number, progress bar
 function renderProgress(total, count) {
-  const progressBar = 100 / total * count;
-  questionNumber.innerHTML = count;
-  questionTotal.innerHTML = total;
-  progressInner.style.width = `${progressBar}%`;
-
+    var progressBar = 100 / total * count;
+    questionNumber.innerHTML = count;
+    questionTotal.innerHTML = total;
+    progressInner.style.width = "".concat(progressBar, "%");
 }
-
-//end
-
-
-
-
-// render questions 
+// end
+// render questions
 function renderQuestion(count) {
-  question.innerHTML = data[count].question;
+    question.innerHTML = data[count].question;
 }
-//end
-
-
+// end
 // render and insert answers from data base into DOM
 function createAnswers(answers) {
-  const answersData = [];
-  answers.forEach((answer, index) => {
-    const answerElem = `
-    <div class="quiz-list__option" data-id="${index}">${answer}</div>
-  `;
-    answersData.push(answerElem);
-   
-  })
-
-  return answersData.join('');
+    var answersData = [];
+    answers.forEach(function (answer, index) {
+        var answerElem = "\n    <div class=\"quiz-list__option\" data-id=\"".concat(index, "\">").concat(answer, "</div>\n  ");
+        answersData.push(answerElem);
+    });
+    return answersData.join('');
 }
-// const answersData = createAnswers(data.questions[0].answers)
-
 function renderAnswers(htmlString) {
-  answers.innerHTML = htmlString;
+    answers.innerHTML = htmlString;
 }
-
-//end
-
+// end
 // render click event on answer
-
-
-
-// })
-// }
-answers.onclick = (event) => {
-
-  const target = event.target;
-  if (target.classList.contains('quiz-list__option')) {
-    // const answerNumber = target.dataset.id
-    if (target.dataset.id == data[count].correct){
-      target.classList.add('quiz-list__option--true');
-      resultCount++
-    } else {
-      target.classList.add('quiz-list__option--false');
-      
+answers.onclick = function (event) {
+    var target = event.target;
+    if (target.classList.contains('quiz-list__option')) {
+        if (target.dataset.id == data[count].correct) { // if set ===  it doesnt work
+            target.classList.add('quiz-list__option--true');
+            answers.classList.add('disabled');
+            resultCount++;
+        }
+        else {
+            target.classList.add('quiz-list__option--false');
+            answers.classList.add('disabled');
+            var showTrueAnswer = document.querySelector(".quiz-list__option[data-id=\"".concat(data[count].correct, "\"]"));
+            showTrueAnswer.classList.add('quiz-list__option--true');
+        }
+        disableButton(false);
     }
-    console.log(target);
-    console.log(options);
-    
-    
-    // const isValid = validAnswer(count, answerNumber)
-    // const answerClass = isValid ? 'quiz-list__option--true' : 'quiz-list__option--false'
-    // target.classList.add(answerClass)
-    disableButton(false)
-    
-    // resultCount = isValid ? resultCount + 1 : resultCount
-  }
-
-}
-
-const  disabledOptions = () =>{
-  options.forEach (item => {
-  item.classList.add('disabled');
-    if(item.dataset.id === data[count].correct){
-      item.classList.add('quiz-list__option--true');
-    }
-  })
- 
-}
-disabledOptions()
-// function validAnswer(count, answer) {
-//   const correct = data[count].correct
-//   return correct == answer
-// }
-
-
-
+};
+// end
+// quiz buttons
 function disableButton(isDisable) {
-  if (isDisable) {
-    nextButton.classList.add('quiz__button--disable');
-  } else {
-    nextButton.classList.remove('quiz__button--disable');
-
-  }
-
+    if (isDisable) {
+        nextButton.classList.add('quiz__button--disable');
+    }
+    else {
+        nextButton.classList.remove('quiz__button--disable');
+    }
 }
-
-
+nextButton.onclick = function () {
+    count = count < questionsCount ? count + 1 : count;
+    renderQuiz(questionsCount, count);
+    answers.classList.remove('disabled');
+};
+restartButton.onclick = function () {
+    location.reload();
+};
 function changeButtonResult() {
-  nextButton.innerText = 'Узнать результат';
-  nextButton.dataset.result = 'result';
+    nextButton.innerText = 'Узнать результат';
+    nextButton.dataset.result = 'result';
 }
-
-//end
-
-// render reslut 
+// end
+// render reslut
 function renderResults() {
-  quizBlock.classList.add('hidden');
-  resultBlock.classList.remove('hidden');
-  correctAnswers.innerHTML = resultCount;
-  totalAnswers.innerHTML = questionsCount;
+    quizBlock.classList.add('hidden');
+    resultBlock.classList.remove('hidden');
+    correctAnswers.innerHTML = resultCount;
+    totalAnswers.innerHTML = questionsCount;
 }
-
-
-
-// add answer disable, and function to show right answer when user picked the wrong answer
-// add webpack
-// linter
-
-
-
-//
-
-
-
-
-
-
-
-
-
+// end

@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homework 2</title>
+  <title>Homework 5</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="./build/styles/style.css">
   <link rel="stylesheet" href="./build/styles/layout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
 
@@ -18,35 +19,40 @@
 <body>
   <div class="wrapper">
     <div id="quiz" class="quiz  wrapper__quiz">
-      <h2 class="quiz__descr" id="title">Тест</h2>
-      <div class="quiz-progress ">
+      <div class="quiz-header row row--centered-xy">
+        <h2 class="quiz__descr" id="title">Quiz</h2>
+        <div class="quiz-timer row">
+          <i class="fa-regular fa-hourglass"></i>
+          <span class="quiz-timer__left"></span>
+        </div>
+      </div>
+      <div class="quiz-progress">
         <div class="quiz-progress__inner" id="progress-inner"></div>
       </div>
       <div class="quiz-content quiz-content__container">
         <span class="quiz__title" id="question"></span>
         <div id="answers" class="quiz-list quiz-list--aligned column">
-        
         </div>
       </div>
       <div class="quiz-footer">
         <div class="quiz-footer__total">
-          <span id="question-number"></span> / <span id="question-total"></span>
+          <span id="question-number">0</span> / <span id="question-total">0</span>
         </div>
         <button type="button" id="next-button" class="btn quiz__button">Следующий вопрос</button>
       </div>
     </div>
     <div id="result" class="result wrapper__result hidden">
-      <div class="result__title">Вы успешно завершили тест!</div>
+      <div class="result__title">Вы завершили тест!</div>
       <div class="result__text">
-        <span>Верных ответов</span>
+        <span>Результат</span>
         <span id="correct-answers">1</span>
         <span>/</span>
         <span id="total-answers">3</span>
       </div>
-      <button type="submit" class="btn result__button">Начать заново</button>
+      <button type="submit" id="restart-button" class="btn result__button">Начать заново</button>
     </div>
   </div>
-  <script src="./dist/main.66aabdcda0385aef74da.js" defer></script>
+  <script src="./src/index.js" type="module" defer></script>
 
 </body>
 

@@ -2,10 +2,8 @@
 
 STEPS FOR STARTS
 
+for VSC use Live Sass Compiler extension
 npm i
-<!-- npm install lite-server --save-dev
-npm install json-server --save-dev
-npm install -D concurrently -->
+npm run start
 
-npm run dev
 

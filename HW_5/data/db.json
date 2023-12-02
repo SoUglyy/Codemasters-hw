@@ -6,58 +6,58 @@
         "HyperText Markup Language",
         "Cascading Style Sheets",
         "Hypertext Preprocessor",
-        "Ответ 4"
+        "Это круто"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "Что такое CSS?",
+      "answers": [
+        "HyperText Markup Language",
+        "Cascading Style Sheets",
+        "Hypertext Preprocessor",
+        "Можно навалить стиля",
+        "Я не знаю"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Что такое объект?",
+      "answers": [
+        "Набор свойств, и каждое свойство состоит из имени и значения, ассоциированного с этим именем.",
+        "Объект?",
+        "Высокоуровневые спископодобные объекты",
+        "Это класс"
       ],
       "correct": 0
     },
     {
       "question": "2 + 3 = ?",
       "answers": [
-        "Ответ 1",
-        "Ответ 2",
-        "Ответ 3",
-        "Ответ 4",
-        "Ответ 4"
+        "5",
+        "6"
       ],
-      "correct": 1
+      "correct": 0
     },
     {
-      "question": "2 + 5 = ?",
+      "question": "2 + '2' = ?",
       "answers": [
-        "Ответ 1",
-        "Ответ 2",
-        "Ответ 3",
-        "Ответ 4"
+        "4",
+        "null",
+        "undefined",
+        "2+'2'"
       ],
-      "correct": 2
+      "correct": 0
     },
     {
-      "question": "2 + 7 = ?",
+      "question": "1 + 3 = ?",
       "answers": [
-        "Ответ 1",
-        "Ответ 2"
+        "4",
+        "2",
+        "1",
+        "222"
       ],
-      "correct": 1
-    },
-    {
-      "question": "2 + 8 = ?",
-      "answers": [
-        "Ответ 1",
-        "Ответ 2",
-        "Ответ 3",
-        "Ответ 4"
-      ],
-      "correct": 1
-    },
-    {
-      "question": "2 + 9 = ?",
-      "answers": [
-        "Ответ 1",
-        "Ответ 2",
-        "Ответ 3",
-        "Ответ 4"
-      ],
-      "correct": 2
+      "correct": 0
     }
   ]
 }

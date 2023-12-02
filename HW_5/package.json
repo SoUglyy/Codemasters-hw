@@ -5,11 +5,13 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"lite-server -c configs/lite-server-config.json\" \"node configs/server.js\"",
     "dev": "lite-server -c configs/lite-server-config.json",
     "json:server": "node configs/server.js",
     "tsc": "tsc",
     "build": "webpack",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix":"npm run lint -- --fix"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +19,8 @@
     "@types/node": "^20.10.1",
     "@types/webpack": "^5.28.5",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
-    "eslint": "^8.54.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.55.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-config-standard-with-typescript": "^40.0.0",
     "eslint-plugin-import": "^2.29.0",

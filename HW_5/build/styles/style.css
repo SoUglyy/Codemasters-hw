@@ -77,6 +77,34 @@ body {
   font-size: 1.5625rem;
   font-weight: 600;
 }
+.quiz-timer {
+  margin-left: 17rem;
+  margin-bottom: 1.1rem;
+}
+.quiz-timer__text {
+  color: red;
+  font-size: 2rem;
+}
+.quiz-timer__end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  padding: 1rem;
+  width: 200px;
+}
+.quiz-timer__button {
+  height: 38px;
+  padding: 0 10px;
+  border-radius: 6px;
+  border: 2px solid rgb(238, 174, 202);
+  background: #fff;
+  cursor: pointer;
+}
 .quiz-content__container {
   padding: 25px 30px 20px;
 }
