@@ -4,7 +4,7 @@
   "description": "***QUIZ APP",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "sass": "sass -w src/styles/scss/:src/styles/css",
     "start": "concurrently \"lite-server -c configs/lite-server-config.json\" \"node configs/server.js\"",
     "dev": "lite-server -c configs/lite-server-config.json",
@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^29.5.10",
     "@types/node": "^20.10.1",
     "@types/webpack": "^5.28.5",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
@@ -34,7 +35,8 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.3.2",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "test": "jest"
   },
   "dependencies": {
     "npm-sass": "^3.1.0"
