@@ -1,4 +1,5 @@
 const SERVER_URL = 'http://localhost:3000/';
+// Это должен быть ts файл
 
 export async function get (url) {
   const api = `${SERVER_URL}${url}`;
